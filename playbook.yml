@@ -1,0 +1,34 @@
+- hosts: localhost
+  connection: local
+  gather_facts: no           
+  sudo: no
+  vars:
+    homebrew_packages_taps:
+      - homebrew/binary
+      - homebrew/dupes
+    homebrew_packages_packages:
+      - { name: ansible }
+      - { name: git }
+      - { name: python }
+      - { name: vim }
+      - { name: wget }
+      - { name: bash }
+    homebrew_cask_packages_packages:
+      - firefox
+      - google-chrome
+      - heroku-toolbelt
+      - kobito
+      - macvim
+      - coteditor
+      - github
+      - sourcetree
+      - iterm2
+      - skype
+      - vagrant
+      - virtualbox
+      - xquartz
+    homebrew_packages_packages:
+      - { name: wireshark, install_options: with-x }
+  roles:
+    - hnakamur.homebrew-packages
+    - hnakamur.homebrew-cask-packages 
